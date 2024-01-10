@@ -12,6 +12,7 @@ import {
 
 } from "react-router-dom";
 import AboutPage from './pages/AboutPage';
+import BookDetail from './components/BookDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
       <Route exact path='/' element={<App />} />
       <Route exact path='/aboutUs' element={<AboutPage />} />
       <Route exact path='/bookCollection' element={<Collection />} />
+      <Route exact path='/bookDetail' element={<BookDetail />} />
     </Routes>
     <Footer />
   </BrowserRouter>

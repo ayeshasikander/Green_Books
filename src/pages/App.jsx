@@ -4,11 +4,13 @@ import Price from '../components/Price';
 import BookCart from '../components/BookCart';
 import Main from '../components/Main';
 import Intro from '../components/Intro';
+import Service from '../components/Service';
 function App() {
   return (
     <div className="App">
       <Main />
-      <Intro/>
+      <Intro />
+      <Service/>
       <BookCart />
       <Review />
       <Price />

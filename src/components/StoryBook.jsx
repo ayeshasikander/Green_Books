@@ -6,7 +6,7 @@ const StoryBook = () => {
         <Story className="book">
             <p>Hello</p>
             <Cover className="cover">
-                <p>Hover Me</p>
+               <p>Hover Me</p>
             </Cover>
         </Story>
     )
