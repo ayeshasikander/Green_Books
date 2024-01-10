@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from '../assets/bg (1).mp4';
+import bg from '../assets/bg (2).mp4';
 const Main = () => {
     return (
         <div className="relative">
