@@ -1,15 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const StoryBook = ({book}) => {
-    return (
-        <Story className="book">
+const StoryBook = ({ book }) => {
+  console.log(book)
+ 
+  return (
+    <>
+      {book.map((item) => {
+        let thumbnail =
+          item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+        return (
+          <Story key={item.id} className="book">
             <p>Hello</p>
             <Cover className="cover">
-                <p>Hover Me</p>
+              <img src={thumbnail} alt="Thumbnail" />
             </Cover>
-        </Story>
-    );
+          </Story>
+        );
+      })}
+    </>
+  );
 };
 
 const Story = styled.div`
@@ -45,6 +55,8 @@ const Cover = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: fill;
+  overflow: hidden;
 
   ${Story}:hover & {
     transition: all 0.5s;

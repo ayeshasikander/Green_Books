@@ -1,18 +1,19 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import StoryBook from './StoryBook';
 import Search from './Search';
 import styled from 'styled-components';
 
-const BookCart = () => { 
+const BookCart = () => {
 
     const [fetchBooks, setFetchBooks] = useState([]);
-    const [displayBooks,setDisplayBooks] = useState([]);
+    const [displayBooks, setDisplayBooks] = useState([]);
 
-    useEffect(()=>{
-        setDisplayBooks(fetchBooks.slice(0,10));
-    },[fetchBooks]);
+    useEffect(() => {
+        const booksArray = fetchBooks.items || [];
+        setDisplayBooks(fetchBooks.slice(0, 10));
+    }, [fetchBooks]);
 
-    const updateBooks = (books)=>{
+    const updateBooks = (books) => {
         setFetchBooks(books)
     }
 
@@ -20,23 +21,23 @@ const BookCart = () => {
         <CartConainter className="relative overflow-hidden">
             <div className="pb-80  px-14 sm:pb-40 sm:pt-24 lg:pb-48  ">
                 <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8 text-center">
-                    <Search updateBooks={updateBooks}/>
+                    <Search updateBooks={updateBooks} />
                     <div className="text-center p-4">
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Green Book Chapters</h1>
                     </div>
                     <div className="mt-10 flex flex-row flex-wrap gap-14 items-center justify-center">
                         {
-                            displayBooks.map((book,index)=>(
-                              <a href="/bookDetail"> <StoryBook key={index} book={book}/></a>  
+                            displayBooks.map((book, index) => (
+                                <a key={index} href="/bookDetail"><StoryBook book={book} /></a>
                             ))
                         }
-                        
+
                     </div>
-                    <a href="/bookCollection" className="inline-block mt-8 rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">
+                    <a href="/bookCollection" className="inline-block mt-8 rounded-md border border-transparent bg-[#583928] px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">
                         More Book Collection
                     </a>
                 </div>
-               
+
             </div>
         </CartConainter>
     );
