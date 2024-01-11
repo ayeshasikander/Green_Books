@@ -8,11 +8,11 @@ import Service from '../components/Service';
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Main />  
       <Intro />
-      <Service/>
       <BookCart />
       <Review />
+      <Service/>
       <Price />
       <Contact />
 

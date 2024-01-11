@@ -22,11 +22,11 @@ const Footer = () => {
                             </h3>
                             <p className="mt-5 line-clamp-3 text-md leading-6 text-gray-600">Making the world a better place through constructing elegant hierarchies.</p>
                         </div>
-                        <div className="relative mt-8 flex items-center gap-x-4 text-2xl text-gray-500 space-x-3">
-                            <a className='transition-colors duration-300 hover:text-blue-500' href="/"><FaFacebook /></a>
-                            <a className='transition-colors duration-300 hover:text-blue-500' href="/"> <BsInstagram /></a>
-                            <a className='transition-colors duration-300 hover:text-blue-500' href="/">  <FaTwitter /></a>
-                            <a className='transition-colors duration-300 hover:text-blue-500' href="/"> <FaGithub /></a>
+                        <div className="relative mt-8 flex items-center gap-x-4 text-2xl text-[#78523D] space-x-3">
+                            <a className='transition-colors duration-300 hover:text-black' href="/"><FaFacebook /></a>
+                            <a className='transition-colors duration-300 hover:text-black' href="/"> <BsInstagram /></a>
+                            <a className='transition-colors duration-300 hover:text-black' href="/">  <FaTwitter /></a>
+                            <a className='transition-colors duration-300 hover:text-black' href="/"> <FaGithub /></a>
                         </div>
                     </article>
                     <div className="grid grid-cols-3 gap-4 text-center">

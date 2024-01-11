@@ -37,10 +37,10 @@ const Header = () => {
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
-                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-slate-200 rounded-full px-5 py-2 hover:bg-gray-200 opacity-75">Product</a>
-                    <a href="/aboutUs" className="text-xl font-semibold leading-6 text-black border border-solid border-slate-200 rounded-full px-5 py-2 hover:bg-gray-200 opacity-75">About</a>
-                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-slate-200 rounded-full px-5 py-2 hover:bg-gray-200 opacity-75">Marketplace</a>
-                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-slate-200 rounded-full px-5 py-2 hover:bg-gray-200 opacity-75">Company</a>
+                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Product</a>
+                    <a href="/aboutUs" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">About</a>
+                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Marketplace</a>
+                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Company</a>
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end  text-2xl">
                     <FaRegBell className={isScrolled ? 'text-black' : 'text-white'}/>
