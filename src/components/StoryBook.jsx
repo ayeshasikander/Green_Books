@@ -1,30 +1,33 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StoryBook = ({ data }) => {
   console.log(data);
 
   return (
-    <Story className="book">
-      <Cover className="cover">
-        {data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail && (
-          <img src={data.volumeInfo.imageLinks.thumbnail} alt="Thumbnail" />
-        )}
-        <hr className="w-20 h-1 bg-[#371A06] mt-3" />
-        <p>
-          Author's: <br />
-          {data.volumeInfo.authors}
-        </p>
-      </Cover>
-      <div className="info flex flex-col">
-        <p className="text-[20px] font-bold">{data.volumeInfo.title}</p>
-        <p className="text-[#80302a]">Publisher:
-          <br />
-          {data.volumeInfo.publisher}
-        </p>
-        
-      </div>
-    </Story>
+    <Link to={`/bookDetail/${data.id}`}>
+      <Story className="book">
+        <Cover className="cover">
+          {data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail && (
+            <img src={data.volumeInfo.imageLinks.thumbnail} alt="Thumbnail" />
+          )}
+          <hr className="w-20 h-1 bg-[#371A06] mt-3" />
+          <p>
+            Author's: <br />
+            {data.volumeInfo.authors}
+          </p>
+        </Cover>
+        <div className="info flex flex-col">
+          <p className="text-[20px] font-bold">{data.volumeInfo.title}</p>
+          <p className="text-[#80302a]">Publisher:
+            <br />
+            {data.volumeInfo.publisher}
+          </p>
+
+        </div>
+      </Story>
+    </Link>
   );
 };
 

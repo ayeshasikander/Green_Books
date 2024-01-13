@@ -1,19 +1,35 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Rating from './Rating';
 const BookDetail = () => {
+    const { id } = useParams();
+    // console.log(id);
+
+    const [bookDetail, setBookDetai] = useState({})
+    const fetchBook = async () => {
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}`)
+        const data = await response.json()
+        setBookDetai(data)
+    };
+    useEffect(() => {
+        fetchBook(id);
+    }, [id]);
+    const getDescriptionHTML = () => {
+        return { __html: bookDetail?.volumeInfo?.description || '' };
+    };
+
     return (
 
         <div className="bg-white m-20">
             <div className="pt-6">
                 <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
                     <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Detail Section</h1>
+                        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{bookDetail?.volumeInfo?.title}</h1>
                     </div>
 
                     <div className="mt-4 lg:row-span-3 lg:mt-0">
-                        <h2 className="sr-only">Product information</h2>
                         <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-                            <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg" alt="Model wearing plain white basic tee." className="h-full w-full object-cover object-center" />
+                            <img src={bookDetail?.volumeInfo?.imageLinks?.thumbnail} alt="Model wearing plain white basic tee." className="h-full w-full object-cover object-center" />
                         </div>
 
                         <form className="mt-10">
@@ -27,7 +43,7 @@ const BookDetail = () => {
                             <h3 className="sr-only">Description</h3>
 
                             <div className="space-y-6">
-                                <p className="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+                                <p className="text-base text-gray-900" dangerouslySetInnerHTML={getDescriptionHTML()}></p>
                             </div>
                         </div>
 
@@ -36,19 +52,20 @@ const BookDetail = () => {
 
                             <div className="mt-4">
                                 <ul className="list-disc space-y-2 pl-4 text-sm">
-                                    <li className="text-gray-400"><span className="text-gray-600">Hand cut and sewn locally</span></li>
-                                    <li className="text-gray-400"><span className="text-gray-600">Dyed with our proprietary colors</span></li>
-                                    <li className="text-gray-400"><span className="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
-                                    <li className="text-gray-400"><span className="text-gray-600">Ultra-soft 100% cotton</span></li>
+                                    <li className="text-gray-400"><span className="text-gray-600">Authors: {bookDetail?.volumeInfo?.authors}</span></li>
+                                    <li className="text-gray-400"><span className="text-gray-600">Publisher: {bookDetail?.volumeInfo?.publisher}</span></li>
+                                    <li className="text-gray-400"><span className="text-gray-600">Published Date: {bookDetail?.volumeInfo?.publishedDate}</span></li>
+                                    <li className="text-gray-400"><span className="text-gray-600">Page Count: {bookDetail?.volumeInfo?.pageCount}</span></li>
+                                    <li className="text-gray-400"><span className="text-gray-600">Content Version: {bookDetail?.volumeInfo?.contentVersion}</span></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div className="mt-10">
-                            <h2 className="text-sm font-medium text-gray-900">Details</h2>
+                            <h2 className="text-sm font-medium text-gray-900">Rating</h2>
 
                             <div className="mt-4 space-y-6">
-                                <p className="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
+                                <Rating />
                             </div>
                         </div>
                     </div>

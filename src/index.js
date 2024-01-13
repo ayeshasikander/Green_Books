@@ -27,7 +27,7 @@ function RootComponent() {
         <Route exact path='/' element={<App />} />
         <Route exact path='/aboutUs' element={<AboutPage />} />
         <Route exact path='/bookCollection' element={<Collection />} />
-        <Route exact path='/bookDetail' element={<BookDetail />} />
+        <Route exact path='/bookDetail/:id' element={<BookDetail />} />
       </Routes>
       {contentLoaded && <Footer />}
     </BrowserRouter>

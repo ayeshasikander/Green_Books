@@ -27,7 +27,7 @@ const BookCart = () => {
                     <div className="mt-10 flex flex-row flex-wrap gap-14 items-center justify-center">
                         {
                             displayBooks.map((data, index) => (
-                                <a key={index} href="/bookDetail"><StoryBook data={data} /></a>
+                                <StoryBook key={index} data={data} />
                             ))
                         }
 
