@@ -1,31 +1,34 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const DefaultBook = ({ data }) => {
     console.log(data)
 
 
     return (
-        <Story className="book">
-            <Cover className="cover">
-                {data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail && (
-                    <img src={data.volumeInfo.imageLinks.thumbnail} alt="Thumbnail" />
-                )}
+        <Link to={`/bookDetail/${data.id}`}>
+            <Story className="book">
+                <Cover className="cover">
+                    {data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail && (
+                        <img src={data.volumeInfo.imageLinks.thumbnail} alt="Thumbnail" />
+                    )}
 
-                <hr className="w-20 h-1 bg-[#371A06] mt-3" />
-                <p>
-                    Title: <br />
-                    {data.volumeInfo.title}
-                </p>
-            </Cover>
-            <div className="info flex flex-col">
-                
-                <p className="text-[#80302a]">
-                    {data.volumeInfo.description.slice(0,100)}
-                </p>
+                    <hr className="w-20 h-1 bg-[#371A06] mt-3" />
+                    <p>
+                        Title: <br />
+                        {data.volumeInfo.title}
+                    </p>
+                </Cover>
+                <div className="info flex flex-col">
 
-            </div>
-        </Story>
+                    <p className="text-[#80302a]">
+                        {data.volumeInfo.description.slice(0, 100)}
+                    </p>
+
+                </div>
+            </Story>
+        </Link >
     );
 };
 

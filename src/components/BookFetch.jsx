@@ -8,7 +8,7 @@ const BookFetch = () => {
     useEffect(()=>{
         const fetchData = async()=>{
             try {
-                const response=await fetch('https://www.googleapis.com/books/v1/volumes?q=time&printType=magazines&key=AIzaSyDn_TMqEHDKMAlbPvTD2pqIv0vqnGq6V6A')
+                const response=await fetch('https://www.googleapis.com/books/v1/volumes?q=time&printType=magazines&maxResults=20&key=AIzaSyDn_TMqEHDKMAlbPvTD2pqIv0vqnGq6V6A')
                 const data=await response.json();
                 if (data.items) {
                     setMagzine(data.items);

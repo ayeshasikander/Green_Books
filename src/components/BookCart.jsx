@@ -2,21 +2,31 @@ import React, { useEffect, useState } from 'react';
 import StoryBook from './StoryBook';
 import Search from './Search';
 import styled from 'styled-components';
-// import DefaultBook from './DefaultBook';
 import BookFetch from './BookFetch';
 
 const BookCart = () => {
 
     const [fetchBooks, setFetchBooks] = useState([]);
     const [displayBooks, setDisplayBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000)
         setDisplayBooks(fetchBooks);
     }, [fetchBooks]);
 
     const updateBooks = (books) => {
         setFetchBooks(books)
     }
+    if (loading) {
+        return (
+            <div className='text-center text-[60px] font-bold text-red-800'>Processesing...</div>
+        )
+    }
+
 
     return (
         <CartConainter className="relative overflow-hidden">
@@ -27,16 +37,15 @@ const BookCart = () => {
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Green Book Chapters</h1>
                     </div>
                     <div className="mt-10 flex flex-row flex-wrap gap-14 items-center justify-center">
-                        {
+                        {displayBooks.length > 0 ? (
                             displayBooks.map((data, index) => (
                                 <StoryBook key={index} data={data} />
                             ))
-                        }
-                        <BookFetch />
+                        ) : (
+                            <BookFetch />
+                        )}
                     </div>
-                    {/* <a href="/bookCollection" className="inline-block mt-8 rounded-md border border-transparent bg-[#583928] px-8 py-3 text-center font-medium text-white hover:bg-[#78523D]">
-                        More Book Collection
-                    </a> */}
+
                 </div>
 
             </div>
