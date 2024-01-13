@@ -1,24 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 
-const StoryBook = ({ book }) => {
-  console.log(book)
- 
+const StoryBook = ({ data }) => {
+  console.log(data);
+
   return (
-    <>
-      {book.map((item) => {
-        let thumbnail =
-          item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
-        return (
-          <Story key={item.id} className="book">
-            <p>Hello</p>
-            <Cover className="cover">
-              <img src={thumbnail} alt="Thumbnail" />
-            </Cover>
-          </Story>
-        );
-      })}
-    </>
+    <Story className="book">
+      <Cover className="cover">
+        {data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail && (
+          <img src={data.volumeInfo.imageLinks.thumbnail} alt="Thumbnail" />
+        )}
+        <hr className="w-20 h-1 bg-[#371A06] mt-3" />
+        <p>
+          Author's: <br />
+          {data.volumeInfo.authors}
+        </p>
+      </Cover>
+      <div className="info flex flex-col">
+        <p className="text-[20px] font-bold">{data.volumeInfo.title}</p>
+        <p className="text-[#80302a]">Publisher:
+          <br />
+          {data.volumeInfo.publisher}
+        </p>
+        
+      </div>
+    </Story>
   );
 };
 
@@ -27,14 +33,17 @@ const Story = styled.div`
   border-radius: 10px;
   width: 200px;
   height: 300px;
-  background-color: #D2C5BE;
+  background-color: #d2c5be;
   box-shadow: 1px 1px 12px #000;
   transform: perspective(2000px) preserve-3d;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
- 
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1rem;
+
   @media screen and (max-width: 688px) {
     width: 200px;
     height: 300px;
@@ -44,7 +53,7 @@ const Story = styled.div`
 const Cover = styled.div`
   top: 0;
   position: absolute;
-  background-color: lightgray;
+  background-color: #d2b092;
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -53,14 +62,19 @@ const Cover = styled.div`
   transform-origin: 0;
   box-shadow: 1px 1px 12px #000;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  object-fit: fill;
   overflow: hidden;
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   ${Story}:hover & {
     transition: all 0.5s;
-    transform: rotatey(-80deg);
+    transform: rotatey(-80deg) scale(0.1);
   }
 `;
 

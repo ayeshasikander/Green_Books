@@ -9,8 +9,7 @@ const BookCart = () => {
     const [displayBooks, setDisplayBooks] = useState([]);
 
     useEffect(() => {
-        const booksArray = fetchBooks.items || [];
-        setDisplayBooks(fetchBooks.slice(0, 10));
+        setDisplayBooks(fetchBooks);
     }, [fetchBooks]);
 
     const updateBooks = (books) => {
@@ -27,15 +26,15 @@ const BookCart = () => {
                     </div>
                     <div className="mt-10 flex flex-row flex-wrap gap-14 items-center justify-center">
                         {
-                            displayBooks.map((book, index) => (
-                                <a key={index} href="/bookDetail"><StoryBook book={book} /></a>
+                            displayBooks.map((data, index) => (
+                                <a key={index} href="/bookDetail"><StoryBook data={data} /></a>
                             ))
                         }
 
                     </div>
-                    <a href="/bookCollection" className="inline-block mt-8 rounded-md border border-transparent bg-[#583928] px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">
+                    {/* <a href="/bookCollection" className="inline-block mt-8 rounded-md border border-transparent bg-[#583928] px-8 py-3 text-center font-medium text-white hover:bg-[#78523D]">
                         More Book Collection
-                    </a>
+                    </a> */}
                 </div>
 
             </div>
