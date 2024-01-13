@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import StoryBook from './StoryBook';
 import Search from './Search';
 import styled from 'styled-components';
+// import DefaultBook from './DefaultBook';
+import BookFetch from './BookFetch';
 
 const BookCart = () => {
 
@@ -30,7 +32,7 @@ const BookCart = () => {
                                 <StoryBook key={index} data={data} />
                             ))
                         }
-
+                        <BookFetch />
                     </div>
                     {/* <a href="/bookCollection" className="inline-block mt-8 rounded-md border border-transparent bg-[#583928] px-8 py-3 text-center font-medium text-white hover:bg-[#78523D]">
                         More Book Collection
