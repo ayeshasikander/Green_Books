@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Service = () => {
   return (
-    <ServiceContainer className="bg-[#78523D] py-14">
+    <ServiceContainer className="bg-[#78523D] py-14 relative">
       <div className="flex flex-col justify-center items-center text-base font-medium text-white">
         <div className="h-20 w-20 m-2 flex-shrink-0 overflow-hidden border rounded-full border-gray-200">
           <img
