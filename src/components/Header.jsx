@@ -1,4 +1,5 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import bookLogo from '../assets/Book_PNG.png'
 import { FaRegBell } from 'react-icons/fa';
 const Header = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const Header = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    
+
 
     return (
         <header className="fixed inset-x-0 top-0 z-50">
@@ -25,7 +26,8 @@ const Header = () => {
                 <div className="flex lg:flex-1">
                     <a href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                        <h1 className='font-bold text-[26px]'>Green</h1>
+                        <h1 className='font-bold text-[16px]'>Book <img className='inline w-10 h-5' src={bookLogo} alt="Green Book" /></h1>
                     </a>
                 </div>
                 <div className="flex lg:hidden">
@@ -37,13 +39,13 @@ const Header = () => {
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
-                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Product</a>
-                    <a href="/aboutUs" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">About</a>
-                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Marketplace</a>
-                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Company</a>
+                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">LaunchPad</a>
+                    <a href="/aboutUs" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">About Us</a>
+                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">ShopSync</a>
+                    <a href="/" className="text-xl font-semibold leading-6 text-black border border-solid border-[#78523D] rounded-full px-5 py-2 hover:bg-[#D3C5BE] opacity-75">Corporate HQ</a>
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end  text-2xl">
-                    <FaRegBell className={isScrolled ? 'text-black' : 'text-white'}/>
+                    <FaRegBell className={isScrolled ? 'text-black' : 'text-white'} />
                 </div>
             </nav>
             <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} role="dialog" aria-modal="true">
@@ -53,7 +55,8 @@ const Header = () => {
                     <div className="flex items-center justify-between">
                         <a href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
-                            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                            <h1 className='font-bold text-[26px]'>Green</h1>
+                            <h1 className='font-bold text-[16px]'>Book <img className='inline w-10 h-5' src={bookLogo} alt="Green Book" /></h1>
                         </a>
                         <button type="button" onClick={toggleMobileMenu} className="-m-2.5 rounded-md p-2.5 text-gray-700">
                             <span className="sr-only">Close menu</span>
@@ -65,10 +68,10 @@ const Header = () => {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                <a href="/" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-                                <a href="/aboutUs" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About</a>
-                                <a href="/" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="/" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 ">Company</a>
+                                <a href="/" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">LaunchPad</a>
+                                <a href="/aboutUs" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Us</a>
+                                <a href="/" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">ShopSync</a>
+                                <a href="/" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 ">Corporate HQ</a>
                             </div>
                             <div className="py-6 text-2xl">
                                 <FaRegBell />

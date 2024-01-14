@@ -1,11 +1,15 @@
 import React from "react";
 import loading from "../assets/lib.mp4";
+import styled, { keyframes } from 'styled-components';
+
+
 const Loader = () => {
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
-      <div className="w-32 aspect-square rounded-full absolute flex justify-center items-center animate-[spin_3s_linear_infinite] z-40 bg-[conic-gradient(white _0deg,white_300deg,transparent_270deg,transparent_360deg)] before:animate-[spin_2s_linear_infinite] before:absolute before:w-[60%] before:aspect-square before:rounded-full before:z-[80] before:bg-[conic-gradient(white_0deg,white_270deg,transparent_180deg,transparent_360deg)] after:absolute after:w-3/4 after:aspect-square after:rounded-full after:z-[60] after:animate-[spin_3s_linear_infinite] after:bg-[conic-gradient(#390B04_0deg,#562315_180deg,transparent_180deg,transparent_360deg)]">
-        <span className="absolute w-[85%] aspect-square rounded-full z-[60] animate-[spin_5s_linear_infinite] bg-[conic-gradient(#562315_0deg,#000000_180deg,transparent_180deg,transparent_360deg)]"></span>
-      </div>
+      <LoaderContainer>
+        <span></span>
+      </LoaderContainer>
+
       <video className="inset-0 w-full h-full object-cover" autoPlay loop muted>
         <source src={loading} type="video/mp4" />
       </video>
@@ -13,5 +17,73 @@ const Loader = () => {
     </div>
   );
 };
+const radar81 = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const LoaderContainer = styled.div`
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    background: transparent;
+    border: 1px dashed #444;
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25), inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px dashed #444;
+    box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25), inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    transform-origin: top left;
+    animation: ${radar81} 2s linear infinite;
+    border-top: 1px dashed #fff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: red;
+      transform-origin: top left;
+      transform: rotate(-55deg);
+      filter: blur(30px) drop-shadow(20px 20px 20px seagreen);
+    }
+  }
+`;
 
 export default Loader;
