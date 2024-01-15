@@ -27,7 +27,6 @@ const BookCart = () => {
         )
     }
 
-
     return (
         <CartConainter className="relative overflow-hidden">
             <div className="pb-80  px-14 sm:pb-40 sm:pt-24 lg:pb-48  ">
